@@ -2,27 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Basic JavaScript Dump</title>
+  <title>Are You Psychic?</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
-  <body>
-    <h1>The Psychic Game</h1>
-     <div>
-        <h2>Guess What letter I'm thinking of!</h2>
-        <h3>INSTRUCTIONS:</h3>
-        <P>Use your keyboard to type the letter that you guess I'm thinking of.</P>
-        <p>You get 10 guesses per turn.</p>
-     </div>
-     <div>
-<p> Wins: 0 </p>
-<p> Losses: 0 </p>
-<p> Guesses Left: 10 </p>
-<p> Your Guesses so far: a, b, c, d, e, f</p>
-     </div>
-    <script type="text/javascript">
-
-
-
-    </script>
-
+<body class="container">
+  
+  <div class="container bg-secondary">
+    <h1 class="row-md-4 text-center bg-info">The Psychic Game</h1>
+    <h4 class="row-md-8 text-center">Are you Psychic?? Let's find out!</h4>
+    <h1 class="row-md-8 text-center bg-danger">Guess What Letter I'm Thinking Of!</h1>
+  </div>
+  <div>
+    <h3>INSTRUCTIONS:</h3>
+    <P>Use your keyboard to type the letter that you guess I'm thinking of.</P>
+    <p>You get 10 guesses per turn.</p>
+  </div>
+  <div id="game">
+    <p id="displayWins">Wins: 0</p>  
+    <p id="displayLosses">Losses: 0</p>
+    <p id="displayGuessLeft">Guesses Left: 10</p>
+    <p id="displaysoFar">Your Guesses so far: </p>
+  </div>
+    
+  <script type="text/javascript" src="./assets/javascript/game.js"></script>
   </body>
 </html>
