@@ -1,7 +1,7 @@
 // create an array to hold all the possible letters
-var letters = ["A" "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-    // variables for the status of the game
+// variables for the status of the game
 var wins = "";
 var losses = "";
 var guessesLeft = 10;
