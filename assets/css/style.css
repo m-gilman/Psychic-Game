@@ -1,6 +1,32 @@
+html{
+    min-height: 100%;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     color: #444444;
     background: url(../images/vichy.png);
+}
+
+.highlight {
+    background: #ffd4c3;
+    border: teal 1px solid;
+}
+
+.theGame {
+    background:rgba(255, 255, 255, 0.5);
+}
+
+.instructions {
+    font-size: 20px;
+}
+
+.disclaimer{
+    font-size: 12px;
+}
+
+#answerDisplay {
+    color: hotpink;
+    text-decoration: outline
 }

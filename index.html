@@ -7,25 +7,26 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body class="container">
-  
-  <div class="container bg-default">
-    <h1 class="row-md-4 text-center bg-info">The Psychic Game</h1>
-    <h5 class="row-md-8 text-center">Are you Psychic?? Let's find out!</h5>
-    <h1 class="row-md-8 text-center bg-info">Guess What Letter I'm Thinking Of!</h1>
-  </div>
-  <div>
-    <h3>INSTRUCTIONS:</h3>
-    <P>Use your psychic ability and your keyboard to type the letter I'm thinking of.</P>
-    <p>You get 10 guesses per turn.</p>
-  </div>
-  <div id="game">
-    <p id="displayWins">Wins: 0</p>  
-    <p id="displayLosses">Losses: 0</p>
-    <p id="displayGuessLeft">Guesses Left: 10</p>
-    <p id="displaysoFar">Your Guesses so far: </p>
-  </div>
-    
-  
-  <script type="text/javascript" src="./assets/javascript/game.js"></script>
+    <div class="container highlight mb-2">
+        <h1 class="row-md-4 text-center ">The Psychic Game</h1>
+        <h6 class="row-md-8 text-center">Are you Psychic?? Let's find out!</h6>
+        <h1 class="row-md-8 text-center">Guess The Letter</h1>
+    </div>
+    <div class="container mb-2">
+        <p class="instructions text-center mt-1 mb-0"><u>INSTRUCTIONS:</u> Use your psychic ability and your keyboard to type the letter I'm thinking of.</p>
+        <p class="disclaimer text-center">...It's a game people, none of this means you're actually "psychic!"</p>
+    </div>
+    <div class="theGame text-center">
+        <div id="game">
+            <p><h4>Wins: 0</p>  
+            <p><h4>Losses: 0</h4></p>
+            <p><h4>Guesses Left: 10</p>
+            <p><h4>Your Guesses so far: </p>
+        </div>
+        <div>
+            <p id="answerDisplay"></p>
+        </div>
+    </div>
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
   </body>
 </html>

@@ -1,58 +1,76 @@
-// PROBLEMS:
-// ***Losses counts up as guesses left hits zero, however, it stays on the selected random letter until that letter is guessed. I need it to reset after letter is NOT guessed after 10 tries.
-// **"Your Guesses so far" only shows the last typed letter. I would like for it to list all of the inputs until the game is lost. 
-// *"Your Guesses so far" includes every letter/keystroke imaginable... including "tab","control", etc.
+// FUTURE IMPROVEMENTS:
+// *I would like for the var answerDisplay to reset to the original after a win or loss 
+//  - Maybe put in a button where it says "try again / Do it again" that would reset the guessesLeft, guessesSoFar and answerDisplay
+//  ...And pick a new random letter
 
-
-
-// create an array to hold all the possible letters
+// created an array to hold all the possible letters
 var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 // variables for the status of the game
-var wins = "";
-var losses = "";
-var guessesLeft = 10;
-var guessesSoFar = "";
+var wins = 0;           //To increase as player guesses correct letter
+var losses = 0;         //To decrease if player runs out of guesses and has not matched the letter
+var guessesLeft = 10;   //To decrease as player presses incorrect keys
+var guessesSoFar = [];  //Should populate a list of keys alreay pressed (use .push)
+var userGuess = null;   //What the user picks by pressing a key
 
 // Randomly chooses a letter. This is the Computer's letter.
 var randomLetter = letters[Math.floor(Math.random()* letters.length)];
 
+//Displays the starting text for the game with a placeholder for the letter
+var answerDisplay = document.getElementById("answerDisplay")
+answerDisplay.innerHTML = "<p>Are you psychic? Guess the letter I'm thinking of: <h1> ______ </h1></p>";
+
+//used for testing along the way
+console.log("Wins: " + wins + ", Losses: " + losses + ", GuessesLeft: " + guessesLeft + ", Guesses so far: " + guessesSoFar + ", User_Guess: " + userGuess + ", Computer_picked: " + randomLetter );
+
 
 // This function is run whenever the user presses a key.
 document.onkeyup = function(event) {
-    var guess = event.key;
-    // Make the user's guess uppercase to match the letters in the Array. There is probably a better way to do this...
-    var userGuess = guess.toUpperCase();
+    
+    // When user presses a key, it is changed toUpperCase & saved as userGuess
+	userGuess = event.key.toUpperCase();
 
+    
     // Determines if user wins/loses
     if (userGuess === randomLetter) {
         wins ++;
-        resetGame = true;
-    } else if (guessesLeft<2) {
+        guessesLeft = 10;
+        guessesSoFar = [];
+        //display winning message
+        answerDisplay.style.color = "#00cc00";
+        answerDisplay.innerHTML = "<p>Wow! You must be psychic! The letter I was thinking of was: <h1>" + randomLetter + "</h1>Do it again!</p>";
+        //reset random letter for new game
+        randomLetter = letters[Math.floor(Math.random()* letters.length)];
+    } else if (guessesLeft < 2) {
         losses ++;
-        guessesLeft = 10
-        resetGame = true;
-    } 
-        else {
-        guessesLeft --;
+        guessesLeft = 10;
+        guessesSoFar = [];
+        //display losing message
+        answerDisplay.style.color = "red";
+        answerDisplay.innerHTML = "<p>Sorry, you are not psychic! The letter I was thinking of was: <h1>" + randomLetter + "</h1>try again!</p>";
+        //reset random letter for new game
+        randomLetter = letters[Math.floor(Math.random()* letters.length)];        
+    } else if (guessesSoFar.includes(userGuess)){  // *Typing a duplicate letter shouldn't count as a turn taken and shouldn't display in the string of guessesSoFar
+        // guessesLeft = guessesLeft;       // I just want it to do NOTHING... turns out you don't have to input anything here.
+        // guessesSoFar = guessesSoFar;
+    } else if (letters.includes(userGuess)) {   //using .includes checks user input agains specific content included in var letters (eliminates spaces, tabs, alt, ctrl keys, etc.)
+        guessesSoFar.push(userGuess);   //Updates the "Your Guesses So Far:" to include user's keystroke
+        guessesLeft --;                 //decreases guessesLeft
     }
     
-    console.log("wins: " + wins);
-    console.log("losses: " + losses);
-            
-    // latch onto the "displayWins" id using the JavaScript ".getElementById" selector.
-        var winsDisplay = document.getElementById("displayWins")
-    // We then use the JavaScript method ".innerHTML" to change the content
-            winsDisplay.innerHTML = "Wins: " + wins;
+    console.log("Wins: " + wins + ", Losses: " + losses + ", GuessesLeft: " + guessesLeft + ", Guesses so far: " + guessesSoFar + ", User_Guess: " + userGuess + ", Computer_picked: " + randomLetter );
 
-        var lossDisplay = document.getElementById("displayLosses")
-            lossDisplay.innerHTML = "Losses: " + losses;
+    
 
-        var guessLeftDisplay = document.getElementById("displayGuessLeft")
-            guessLeftDisplay.innerHTML = "Guesses Left: " + guessesLeft;
-
-        var guessSoFarDisplay = document.getElementById("displaysoFar")
-            guessSoFarDisplay.innerHTML = "Your Guesses so far: " + userGuess;
+    var html = "<p><h4>Wins: " + wins + "</h4></p>" + "<p><h4>Losses: " + losses + "</h4></p>" + "<p><h4>Guesses Left: " + guessesLeft + "</h4></p>" + "<p><h4>Your Guesses So Far: " + guessesSoFar + "</h4></p>";
+	// place html into the game ID
+	document.querySelector("#game").innerHTML = html;
 }
 
- 
+ //other stuff I've tried, or think I might need in the future
+    // ***** A list of my id's and corresponding vars  *****
+    //    id="displayWins"          var wins = 0;           
+    //    id="displayLosses"        var losses = 0;         
+    //    id="displayGuessLeft"     var guessesLeft = 0;    
+    //    id="displaysoFar"         var guessesSoFar = "";  
+    //    id="displayTheLetter"     var randomLetter        
