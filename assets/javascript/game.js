@@ -67,7 +67,7 @@ document.onkeyup = function(event) {
 	document.querySelector("#game").innerHTML = html;
 }
 
- //other stuff I've tried, or think I might need in the future
+ 
     // ***** A list of my id's and corresponding vars  *****
     //    id="displayWins"          var wins = 0;           
     //    id="displayLosses"        var losses = 0;         
