@@ -1,6 +1,6 @@
 // FUTURE IMPROVEMENTS:
 // *I would like for the var answerDisplay to reset to the original after a win or loss 
-//  - Maybe put in a button where it says "try again / Do it again" that would reset the guessesLeft, guessesSoFar and answerDisplay
+//  - Maybe put in a button where it says "Try It Again" that would reset the guessesLeft, guessesSoFar and answerDisplay
 //  ...And pick a new random letter
 
 // created an array to hold all the possible letters
@@ -38,7 +38,7 @@ document.onkeyup = function(event) {
         guessesSoFar = [];
         //display winning message
         answerDisplay.style.color = "#00cc00";
-        answerDisplay.innerHTML = "<p>Wow! You must be psychic! The letter I was thinking of was: <h1>" + randomLetter + "</h1>Do it again!</p>";
+        answerDisplay.innerHTML = "<p>Wow! You must be psychic! The letter I was thinking of was: <h1>" + randomLetter + "</h1>Try It Again!</p>";
         //reset random letter for new game
         randomLetter = letters[Math.floor(Math.random()* letters.length)];
     } else if (guessesLeft < 2) {
@@ -47,7 +47,7 @@ document.onkeyup = function(event) {
         guessesSoFar = [];
         //display losing message
         answerDisplay.style.color = "red";
-        answerDisplay.innerHTML = "<p>Sorry, you are not psychic! The letter I was thinking of was: <h1>" + randomLetter + "</h1>try again!</p>";
+        answerDisplay.innerHTML = "<p>Sorry, you are not psychic! The letter I was thinking of was: <h1>" + randomLetter + "</h1>Try It Again!</p>";
         //reset random letter for new game
         randomLetter = letters[Math.floor(Math.random()* letters.length)];        
     } else if (guessesSoFar.includes(userGuess)){  // *Typing a duplicate letter shouldn't count as a turn taken and shouldn't display in the string of guessesSoFar
