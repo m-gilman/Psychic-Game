@@ -14,8 +14,8 @@ var guessesSoFar = [];  //Should populate a list of keys alreay pressed (use .pu
 var userGuess = null;   //What the user picks by pressing a key
 
 // Randomly chooses a letter. This is the Computer's letter.
-var randomLetter = letters[Math.floor(Math.random()* letters.length)];
-
+var randomLetter = letters[Math.floor(Math.random()* letters.length)];  
+console.log (randomLetter);
 //Displays the starting text for the game with a placeholder for the letter
 var answerDisplay = document.getElementById("answerDisplay")
 answerDisplay.innerHTML = "<p>Are you psychic? Guess the letter I'm thinking of: <h1> ______ </h1></p>";
@@ -30,7 +30,7 @@ document.onkeyup = function(event) {
     // When user presses a key, it is changed toUpperCase & saved as userGuess
 	userGuess = event.key.toUpperCase();
 
-    
+
     // Determines if user wins/loses
     if (userGuess === randomLetter) {
         wins ++;
