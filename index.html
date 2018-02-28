@@ -7,26 +7,52 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body class="container">
-    <div class="container highlight mb-2">
-        <h1 class="row-md-4 text-center ">The Psychic Game</h1>
-        <h6 class="row-md-8 text-center">Are you Psychic?? Let's find out!</h6>
-        <h1 class="row-md-8 text-center">Guess The Letter</h1>
-    </div>
-    <div class="container mb-2">
-        <p class="instructions text-center mt-1 mb-0"><u>INSTRUCTIONS:</u> Use your psychic ability and your keyboard to type the letter I'm thinking of.</p>
-        <p class="disclaimer text-center">...It's a game people, none of this means you're actually "psychic!"</p>
-    </div>
-    <div class="theGame text-center">
-        <div id="game">
-            <p><h4>Wins: 0</p>  
-            <p><h4>Losses: 0</h4></p>
-            <p><h4>Guesses Left: 10</p>
-            <p><h4>Your Guesses so far: </p>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="https://m-gilman.github.io/">Melissa Gilman</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://m-gilman.github.io/index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://m-gilman.github.io/portfolio.html">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://m-gilman.github.io/contact.html">Contact</a>
+                </li>
+            </ul>
         </div>
-        <div>
-            <p id="answerDisplay"></p>
+    </nav>
+    !-- MAIN CONTAINER... Everything except nav and header will be inside this container -->
+    <div class="page-wrap container">
+        <div class="row mt-4 pt-3">  </div> <!-- The first row is hidden under the navbar -->
+<!--/END navigation -->        
+
+        <div class="container highlight mb-2">
+            <h1 class="row-md-4 text-center ">The Psychic Game</h1>
+            <h6 class="row-md-8 text-center">Are you Psychic?? Let's find out!</h6>
+            <h1 class="row-md-8 text-center">Guess The Letter</h1>
+        </div>
+        <div class="container mb-2">
+            <p class="instructions text-center mt-1 mb-0"><u>INSTRUCTIONS:</u> Use your psychic ability and your keyboard to type the letter I'm thinking of.</p>
+            <p class="disclaimer text-center">...It's a game people, none of this means you're actually "psychic!"</p>
+        </div>
+        <div class="theGame text-center">
+            <div id="game">
+                <h4>Wins: 0</h4>
+                <h4>Losses: 0</h4>
+                <h4>Guesses Left: 10 </h4>
+                <h4>Your Guesses so far: </h4>
+            </div>
+            <div>
+                <p id="answerDisplay"></p>
+            </div>
         </div>
     </div>
-    <script type="text/javascript" src="./assets/javascript/game.js"></script>
-  </body>
+    <script src="./assets/javascript/game.js"></script>
+</body>
 </html>
